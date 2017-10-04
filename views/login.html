@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ PageTitle|raw }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+      <h1>{{ PageTitle|raw }}</h1>
+      {% if messages %}
+      <p>
+        {% for message in messages %}
+          {{ message.0|raw }}
+        {% endfor %}
+      </p>
+      {% endif %}
+      <form method="post" action="./verify" enctype="application/x-www-form-urlencoded" autocomplete="off">
+        <input type="hidden" name="uuid" value="{{ uuid|raw }}" required="required"/>
+        <input type="hidden" name="{{ tNameKey|raw }}" value="{{ tName|raw }}" required="required"/>
+        <input type="hidden" name="{{ tValueKey|raw }}" value="{{ tValue|raw }}" required="required"/>
+        <p>Name:</p>
+        <p><input type="text" name="username" value="" required="required"/></p>
+        <p>Password</p>
+        <p><input type="password" name="password" value="" required="required"/></p>
+        <p><button type="submit">Login</button></p>
+      </form>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ PageTitle|raw }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+      <h1>{{ PageTitle|raw }}</h1>
+      {% if messages %}
+      <p>
+        {% for message in messages %}
+          {{ message.0|raw }}
+        {% endfor %}
+      </p>
+      {% endif %}
+      <p><a href="./logout" target="_self">Logout</a></p>
+  </body>
+</html>
